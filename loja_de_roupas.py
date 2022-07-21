@@ -29,3 +29,8 @@ def logar():
             return{"Status":"Logado."}
         else:
             return{"Status":"Usuario ou Senha Incorretos."}
+
+@app.route("/banco_de_usuarios")
+def usuarios():
+    return jsonify(cliente)
+
