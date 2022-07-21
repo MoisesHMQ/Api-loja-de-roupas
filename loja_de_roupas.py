@@ -20,3 +20,12 @@ def cadastrar():
         }
     cliente.append(registro)
     return jsonify(registro)
+
+@app.route("/login", methods=['POST'])
+def logar():
+    login = request.json
+    for login in cliente:
+        if login["email"] == login["email"] and login["senha"] == login["senha"]:
+            return{"Status":"Logado."}
+        else:
+            return{"Status":"Usuario ou Senha Incorretos."}
