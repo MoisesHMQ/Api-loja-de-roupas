@@ -34,3 +34,12 @@ def logar():
 def usuarios():
     return jsonify(cliente)
 
+@app.route("/excluir/usuarios", methods=['POST'])
+def excluir_usuarios():
+    user_excluir = request.json
+    print(cliente)
+    for list in cliente:
+        if list["identificação"] == user_excluir["identificação"]:
+            cliente.remove(list)
+            return user_excluir
+
