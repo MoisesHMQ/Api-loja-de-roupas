@@ -43,3 +43,22 @@ def excluir_usuarios():
             cliente.remove(list)
             return user_excluir
 
+camisa  = []
+bermuda = []
+chinelo = []
+
+@app.route("/camisas", methods=['POST'])
+def camisetas():
+    tipo = request.json
+    for tipo_camisas in camisa:
+        if tipo_camisas["camisa"] == tipo["camisa"]:
+            return {"status": "Produto já cadastrado."}
+    tipo = {
+        "codigo_barras": str(uuid.uuid4()),
+        "tamanho":tipo["tamanho"],
+        "camisa": tipo["camisa"],
+        "cor":tipo["cor"]
+    }
+    camisa.append(tipo)
+    return jsonify(tipo)
+
