@@ -54,7 +54,7 @@ def camisetas():
         if tipo_camisas["camisa"] == tipo["camisa"]:
             return {"status": "Produto já cadastrado."}
     tipo = {
-        "codigo_barras": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "tamanho":tipo["tamanho"],
         "camisa": tipo["camisa"],
         "cor":tipo["cor"]
@@ -69,7 +69,7 @@ def bermudas():
         if modelo_gesso["bermuda"] == modelo["bermuda"]:
             return {"status": "Produto já cadastrado."}
     modelo = {
-        "codigo_barras": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "bermuda": modelo["bermuda"],
         "tamanho":modelo["tamanho"]
         }
@@ -83,7 +83,7 @@ def chinelos():
         if modelo_gesso["chinelo"] == modelo["chinelo"]:
             return {"status": "Produto já cadastrado."}
     modelo = {
-        "codigo_barras": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "chinelo": modelo["chinelo"],
         "tamanho":modelo["tamanho"]
         }
@@ -100,7 +100,7 @@ def excluir_camisas():
     itens = request.json
     print(camisa)
     for dell in camisa:
-        if dell["codigo_barras"] == itens["codigo_barras"]:
+        if dell["id"] == itens["id"]:
             camisa.remove(dell)
             return itens
 
@@ -109,7 +109,7 @@ def excluir_bermudas():
     berma = request.json
     print(bermuda)
     for dell in bermuda:
-        if dell["codigo_barras"] == berma["codigo_barras"]:
+        if dell["id"] == berma["id"]:
             bermuda.remove(dell)
             return berma
 
@@ -118,7 +118,7 @@ def excluir_chinelo():
     sandalia = request.json
     print(chinelo)
     for dell in chinelo:
-        if dell["codigo_barras"] == sandalia["codigo_barras"]:
+        if dell["id"] == sandalia["id"]:
             chinelo.remove(dell)
             return sandalia
 
